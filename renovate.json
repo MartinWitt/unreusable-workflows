@@ -3,7 +3,7 @@
   "extends": [
     "config:recommended",
     "helpers:pinGitHubActionDigests"
-  ]
+  ],
   "packageRules": [
     {
       "matchUpdateTypes": [
