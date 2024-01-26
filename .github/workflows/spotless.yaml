@@ -1,0 +1,51 @@
+name: 'Spotless Check'
+on:
+  workflow_call:
+    inputs:
+      java-version:
+        description: 'Version of Java JDK'
+        required: true
+        type: string
+        default: "21"
+      distribution:
+        description: 'Distribution of Java JDK'
+        required: true
+        type: string
+        default: "oracle"
+      branches:
+        description: 'Branch to apply the workflow'
+        required: true
+        type: 'string'
+        default: "master"
+      working-dir:
+        description: 'Working directory'
+        required: true
+        type: string
+        default: "."
+    secrets: []
+    outputs:
+      check-name:
+        description: "The name of the check"
+        value: ${{ jobs.check.outputs.check-name }}
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+        with:
+          ref: ${{ inputs.branches }}
+
+      - name: Set up Java
+        uses: actions/setup-java@387ac29b308b003ca37ba93a6cab5eb57c8f5f93 # v4
+        with:
+          java-version: ${{ inputs.java-version }}
+          distribution: ${{ inputs.distribution }}
+
+      - name: Run Spotless check
+        run: gradle spotlessCheck
+        working-directory: ${{ inputs.working-dir }}
+
+    outputs:
+      check-name: ${{ steps.check.outputs.name }}
