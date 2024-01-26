@@ -17,7 +17,6 @@ on:
         required: true
         type: string
         default: "."
-    secrets: []
     outputs:
       check-name:
         description: "The name of the check"
