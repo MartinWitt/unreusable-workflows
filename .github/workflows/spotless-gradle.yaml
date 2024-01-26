@@ -12,11 +12,6 @@ on:
         required: true
         type: string
         default: "oracle"
-      branches:
-        description: 'Branch to apply the workflow'
-        required: true
-        type: 'string'
-        default: "master"
       working-dir:
         description: 'Working directory'
         required: true
@@ -34,9 +29,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
-        with:
-          ref: ${{ inputs.branches }}
-
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@a8f75513eafdebd8141bd1cd4e30fcd194af8dfa # v2
       - name: Set up Java
         uses: actions/setup-java@387ac29b308b003ca37ba93a6cab5eb57c8f5f93 # v4
         with:
