@@ -29,7 +29,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
       - name: Setup Gradle
-        uses: gradle/gradle-build-action@db35f2304698ac6ff98958322dfd3db0a5da9fdf # v3
+        uses: gradle/gradle-build-action@04b20c065cf1ab708c96e64a8811018d0a1fbc88 # v3
       - name: Set up Java
         uses: actions/setup-java@99b8673ff64fbf99d8d325f52d9a5bdedb8483e9 # v4
         with:
