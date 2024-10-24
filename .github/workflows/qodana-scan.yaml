@@ -12,7 +12,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: 'Qodana Scan'
-        uses: JetBrains/qodana-action@a040a784cc28cb9cabdf884c4e8c32d0aa3fcdb3 # v2023.3.2
+        uses: JetBrains/qodana-action@4f04143e8d52028fee27c2a219c8856035094962 # v2024.2.5
         with:
           args: "--fail-threshold,0"
       - uses: github/codeql-action/upload-sarif@662472033e021d55d94146f66f6058822b0b39fd # v3
