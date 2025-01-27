@@ -41,7 +41,7 @@ jobs:
         with:
           gradle-version: release-candidate
       - name: Setup Node.js
-        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4
+        uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a # v4
         with:
           node-version: {{ inputs.node-version }}
       - uses: actions/setup-java@7a6d8a8234af8eb26422e24e3006232cccaa061b # v4
